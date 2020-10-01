@@ -28,6 +28,6 @@ pipeline {
 
   }
   environment {
-    TARGET_DIR = 'C:\\Jenkins\\workspace\\StoreManagement-JenkinsTest'
+    TARGET_DIR = 'C:\\Jenkins\\workspace\\oreManagement-JenkinsTest_master'
   }
 }
