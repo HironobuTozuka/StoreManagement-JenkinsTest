@@ -9,8 +9,8 @@ pipeline {
 
     stage('build') {
       steps {
-          bat "cd /d \"${TARGET_DIR}\""
-          bat "gradle build -x test"
+        bat "cd /d \"${TARGET_DIR}\""
+        bat 'gradle build -x test'
       }
     }
 
@@ -25,6 +25,7 @@ pipeline {
         echo 'deploy'
       }
     }
+
   }
   environment {
     TARGET_DIR = 'C:\\Jenkins\\workspace\\StoreManagement-JenkinsTest'
