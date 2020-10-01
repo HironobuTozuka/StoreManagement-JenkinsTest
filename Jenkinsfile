@@ -10,7 +10,7 @@ pipeline {
     stage('build') {
       steps {
         bat "cd /d \"${TARGET_DIR}\""
-        bat 'gradle build -x test'
+        bat '\"C:\\Program Files\\Java\\gradle-6.6.1\\bin\\gradle\" build -x test'
       }
     }
 
