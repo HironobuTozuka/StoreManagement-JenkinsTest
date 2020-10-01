@@ -1,0 +1,12 @@
+POST {{store_management_host}}/api/2.0/action:execute
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "transaction_id":"ec-0000000001",
+  "action_type":"GATE_CLOSE",
+  "action_details":{ "gate":"c_gate_1"}
+}
+
+###
+

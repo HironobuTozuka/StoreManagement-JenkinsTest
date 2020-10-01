@@ -1,0 +1,13 @@
+{
+  "receive_time": "2020/02/17 05:10:20 JST",
+  "store_code": "store_identifier",
+  "os_version": "rcs_os_version",
+  "api_versions": ["1.0", "1.1"],
+  "hardware_version": "kokubu_1.0",
+  "status_code": "FUNCTIONAL",
+  "status_details": {
+    "accepting_orders": true,
+    "accepting_preorders": true,
+    "delivering_preorders": true
+  }
+}

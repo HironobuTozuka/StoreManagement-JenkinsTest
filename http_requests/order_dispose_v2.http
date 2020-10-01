@@ -1,0 +1,17 @@
+POST {{store_management_host}}/api/2.0/order:dispose
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "transaction_id":"ec-0000000001",
+  "order_no":"00000008",
+  "order_type":"ORDER",
+  "order_time":"",
+  "pickup_time":"",
+  "gate":"",
+  "order_lines": [
+    {"sku" : "4978041010691", "quantity":1, "order_line_no" : "66"}
+  ]
+}
+###
+

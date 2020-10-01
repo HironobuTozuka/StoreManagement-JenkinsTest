@@ -1,0 +1,2 @@
+GET {{store_management_host}}/api/internal/supply_items:list?supply_id=5c6f33b2-efa0-4575-9149-e61e941eabe3
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv

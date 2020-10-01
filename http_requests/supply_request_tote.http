@@ -1,0 +1,7 @@
+POST {{store_management_host}}/api/internal/supply:request_tote
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "sku_ids": ["4961115112476"]
+}

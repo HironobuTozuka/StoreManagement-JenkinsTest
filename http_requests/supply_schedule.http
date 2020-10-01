@@ -1,0 +1,13 @@
+POST {{store_management_host}}/api/2.0/stock:schedule
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "transaction_id": "request_identifier",
+  "distribution_type": "AMBIENT",
+  "delivery_date": "2020/05/16",
+  "delivery_turn": "2",
+  "sku": "4945224355894",
+  "quantity": 5,
+  "sell_by_date": "2020/06/23 05:10:20 JST"
+}

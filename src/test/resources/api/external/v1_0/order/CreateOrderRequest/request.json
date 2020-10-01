@@ -1,0 +1,17 @@
+{
+  "gate_id": "string",
+  "order_id": "20",
+  "order_lines": [
+    {
+      "quantity": 1,
+      "sku_id": "972a9809-76de-47b0-b66d-1b71370c2346"
+    },
+    {
+      "quantity": 1,
+      "sku_id": "7c9b83c0-2aef-475f-8ba6-d653b288bcb1"
+    }
+  ],
+  "order_type": "ORDER",
+  "pickup_time": "2020-01-30T00:13:21.954",
+  "user_id": "string"
+}

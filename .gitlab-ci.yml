@@ -1,0 +1,57 @@
+image: gradle:jdk11
+
+stages:
+  - test
+  - build
+  - release
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+
+services:
+  - docker:18-dind
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+test:
+  stage: test
+  except:
+    - tags
+  variables:
+    ZONKY_TEST_DATABASE_PROVIDER: docker
+  script:
+    - ./gradlew test
+  artifacts:
+    reports:
+      junit: build/test-results/test/TEST-*.xml
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build
+      - .gradle
+
+build:
+  stage: build
+  except: 
+    - tags
+  script: 
+    - ./gradlew build -x test
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build
+      - .gradle
+
+
+docker:
+  stage: release
+  only: 
+    - tags
+  script:
+    - ./gradlew -PdockerUsername=gitlab-ci-token -PdockerPassword=$CI_JOB_TOKEN -PdockerRegistryURL=registry.gitlab.com dockerPushImage

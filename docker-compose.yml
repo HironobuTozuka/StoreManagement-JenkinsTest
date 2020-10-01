@@ -1,0 +1,107 @@
+version: '3.4'
+services:
+  websockify:
+    image: efrecon/websockify
+    ports:
+      - "8090:8090"
+    command: ['8090', '192.168.2.125:5900']
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENERS: PLAINTEXT://:9092,PLAINTEXT_HOST://:29092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "ScanNotificationTopic:1:1,TransferRequestDoneTopic:1:1,PickRequestDoneTopic:1:1,TransferRequestTopic:1:1,PickRequestBundleTopic:1:1,ActionTopic:1:1,PlcInformationRequestTopic:1:1,PlcInformationResponseTopic:1:1,"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+#  rcsos_gui:
+#    image: registry.gitlab.com/romspolska/supplier-app/supplier-app:1.4
+#    depends_on:
+#      - storemanagement
+#    ports:
+#      - "80:80"
+#    environment:
+#      REACT_APP_RCSOS_API_URL: "http://localhost:8080/api"
+#      REACT_APP_RCSOS_WEBSOCKET_URL: "http://localhost:8080/"
+#      REACT_APP_ROUTER_BASEPATH: "/"
+
+  storemanagement:
+    image: registry.gitlab.com/romspolska/storemanagement/rcs-store-management:v1.156
+    privileged: true
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - websockify
+    volumes:
+    - "/dev:/dev"
+    environment:
+      INC_ROMS_MACHINEOPERATOR_ENABLED: "true"
+      INC_ROMS_MACHINEOPERATOR_URL: "http://mheoperator:80"
+      INC_ROMS_USB_ENABLED: "false"
+      INC_ROMS_OMNICHANNEL_ENABLED: "true"
+      INC_ROMS_OMNICHANNEL_URL: "http://plcemulator:9000"
+      INC_ROMS_SECURITY_ENABLED: "false"
+      SPRING_PROFILES_INCLUDE: "docker,cp,filldb"
+
+  mheoperator:
+    image: registry.gitlab.com/romspolska/mheoperator/mheoperator:20200721.095532_v1.235
+    depends_on:
+      - postgres
+      - kafka
+    ports:
+      - "5000:80"
+    environment:
+      STOREMANAGEMENTCLIENTSETTINGS__USEMOCK: "false"
+      STOREMANAGEMENTCLIENTSETTINGS__URI: "http://storemanagement:8080/"
+      DATABASECONNECTION__USEFILEDB: "false"
+      DATABASECONNECTION__CONNECTIONSTRING: "Host=postgres;Database=postgres;Username=postgres"
+      LOGGING__LOGLEVEL__DEFAULT: "Trace"
+      PLCREQUESTQUEUESERVICE__KAFKAHOSTADDRESS: "kafka:9092"
+      PLCTRANSLATORSETTINGS__USEMOCK: "false"
+      ASPNETCORE_ENVIRONMENT: Emulation
+      SERILOG__MINIMUMLEVEL__DEFAULT: "Trace"
+
+  plcemulator:
+    image: registry.gitlab.com/romspolska/plcemulator/plc-emulator:20200713.123744_1.13
+    depends_on:
+      - storemanagement
+      - mheoperator
+      - kafka
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_KAFKA_CONSUMER_BOOTSTRAPSERVERS: kafka:9092
+      SPRING_KAFKA_PRODUCER_BOOTSTRAPSERVERS: kafka:9092
+      EMULATOR_STOREMANAGEMENT_HOST: http://storemanagement:8080
+      LOGGING_LEVEL_INC_ROMS: DEBUG
+#    deploy:
+#      replicas: 1
+#      restart_policy:
+#        condition: on-failure
+#        delay: 5s
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "9001:3000"

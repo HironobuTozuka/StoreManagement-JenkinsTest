@@ -1,0 +1,25 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<ul layout:fragment="menu" class="nav nav-pills nav-justified">
+<!--    <li role="presentation" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/home') || #httpServletRequest.getRequestURI().equals('/') ? 'active':''}">-->
+<!--        <a class="nav-link" href="/home">Home</a>-->
+<!--    </li>-->
+    <li role="presentation" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/induct') ? 'active':''}">
+        <a class="nav-link" href="/induct/tote">Induct Tote</a>
+    </li>
+    <li role="presentation" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/resupply') ? 'active':''}">
+        <a class="nav-link" href="/resupply/init">Resupply Tote</a>
+    </li>
+    <li role="presentation" class="nav-item" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/hmi') ? 'active':''}">
+        <a class="nav-link" href="/hmi/panel">HMI Panel</a>
+    </li>
+</ul>
+</body>

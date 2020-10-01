@@ -1,0 +1,14 @@
+POST {{store_management_host}}/api/internal/tote:notification
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "00000002",
+  "tote_partitioning": "TRIPARTITE",
+  "tote_height": "LOW",
+  "tote_orientation": "NORMAL",
+  "location": "LOADING_GATE",
+  "tote_status" : "READY"
+}
+
+###

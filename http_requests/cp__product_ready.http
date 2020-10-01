@@ -1,0 +1,13 @@
+### for execute/gate_close
+### exit_code: SUCCESS, ERROR
+PATCH {{cp_host}}/api/1.0/product:ready
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "store_code" : "store-01",
+  "rcs_operation_id" : "rcs-0000001",
+  "sku" : "10000001"
+}
+
+###

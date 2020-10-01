@@ -1,0 +1,100 @@
+{
+  "$breadcrumbsSeparator": "/",
+
+  "Apply": "Apply",
+  "Cancel": "Cancel",
+  "Confirm": "Confirm",
+  "Continue": "Continue",
+  "Delete": "Delete",
+  "Done": "Done",
+  "Disable": "Disable",
+  "Edit": "Edit",
+  "Eject": "Eject",
+  "Empty": "Empty",
+  "Induct": "Induct",
+  "Only In Progress": "Only In Progress",
+  "Preview": "Preview",
+  "Quantity": "Quantity",
+  "Resend": "Resend",
+  "Retry": "Retry",
+  "Save": "Save",
+  "SavePreset": "Save Preset",
+  "Select": "Select",
+  "Start": "Start",
+
+  "Unknown error": "Unknown error",
+  "Unknown error occured.": "Unknown error occured",
+
+
+  "Development": "Development",
+  "Admin": "Admin",
+  "Service Issue": "Service Issue",
+  "Supply": "Supply",
+
+  "Orders": "Orders",
+  "Totes": "Totes",
+  "SKU": "SKU",
+  "SM Support": "SM Support",
+
+
+  "Filters": "Filters",
+  "Filter presets": "Filter presets",
+  "Select pre-saved preset": "Select pre-saved preset",
+
+  "Available": "Available",
+  "Delivery": "Delivery",
+  "Storage Tote": "Storage Tote",
+  "Delivery Tote": "Delivery Tote",
+  "Height": "Height",
+  "Orientation": "Orientation",
+  "Partitioning": "Partitioning",
+  "Reserved": "Reserved",
+  "Reservations": "Reservations",
+  "Status": "Status",
+  "Tote ID": "Tote ID",
+  "Order ID": "Order ID",
+  "Order status": "Order status",
+
+  "by Order": "by Order",
+
+
+  "Issues list": "Issues list",
+  "Issues details": "Issues details",
+  "Well done! Issue finished": "Well done! Issue finished",
+  "To issue list": "To issue list",
+  "Please provide notes if necessary": "Please provide notes if necessary",
+  "Tote on its way, Gate will be open when ready.": "Tote on its way, Gate will be open when ready.",
+
+  "Choose delivery": "Choose delivery",
+  "Hi again {{user}}! Please select or confirm your delivery first": "Hi again {{user}}! Please select or confirm your delivery first",
+  "Turn": "Turn",
+
+  "Help": "Help",
+  "Progress Preview": "Progress Preview",
+  "Stop Resupply": "Stop Resupply",
+
+  "Select delivery": "Select delivery",
+  "Select 3 items on the list": "Select 3 items on the list",
+  "Press start to proceed": "Press start to proceed",
+
+  "Tote is on the way to the loading gate.": "Tote is on the way to the loading gate.",
+  "Please induct tote": "Please induct tote",
+  "Please prepare": "Please prepare",
+  "{{time}}s remaining": "{{time}}s remaining",
+
+  "Put products in active slots": "Put products in active slots",
+  "or scan and put different products": "or scan and put different products",
+  "Provide quantity": "Provide quantity",
+  "or press confirm button": "or press confirm button",
+  "Press submit to proceed": "Press submit to proceed",
+  "Product barcode": "Product barcode",
+
+  "You have put {{inductedQuantity}} out of {{expectedQuantity}} SKU": "You have put {{inductedQuantity}} out of {{expectedQuantity}} SKU",
+  "Tap “Continue” to supply the rest of the products.": "Tap “Continue” to supply the rest of the products.",
+  "Tap “Stop Resupply” if you have no more products left.": "Tap “Stop Resupply” if you have no more products left.",
+  "Tap “Help” if you need more information." : "Tap “Help” if you need more information.",
+  "Finish supply" : "Finish supply",
+
+  "Products successfully submitted.": "Products successfully submitted.",
+  "Tote is on the way to the storage.": "Tote is on the way to the storage."
+}

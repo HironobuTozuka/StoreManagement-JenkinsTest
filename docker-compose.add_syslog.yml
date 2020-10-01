@@ -1,0 +1,37 @@
+version: '3.4'
+
+x-logging: 
+   &syslog-logging
+   driver: syslog
+   options:
+      syslog-address: "tcp://localhost:6000"
+      tag: "{{.Name}}"
+      
+services:
+  websockify:
+    container_name: WSOC  
+    logging: *syslog-logging
+
+  zookeeper:
+    container_name: ZKP  
+    logging: *syslog-logging
+
+  kafka:
+    container_name: KFK  
+    logging: *syslog-logging
+    
+  postgres:
+    container_name: DB  
+    logging: *syslog-logging
+    
+  storemanagement:
+    container_name: SM
+    logging: *syslog-logging
+ 
+  mheoperator:
+    container_name: MHE
+    logging: *syslog-logging
+        
+  plcemulator:
+    container_name: PLCE  
+    logging: *syslog-logging     

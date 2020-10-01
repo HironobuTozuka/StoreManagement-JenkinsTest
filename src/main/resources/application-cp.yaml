@@ -1,0 +1,15 @@
+inc:
+  roms:
+    security:
+      enabled: true
+    gates:
+      loadingGateZone: "LOADING_GATE"
+      ordergates:
+        - gateId: "c_gate_1"
+          zoneId: ORDER_GATE_1
+        - gateId: "c_gate_2"
+          zoneId: ORDER_GATE_2
+
+spring:
+  profiles:
+    include: docker

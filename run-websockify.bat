@@ -1,0 +1,1 @@
+docker run -it --rm -p 8090:8090 --name websockify efrecon/websockify 8090 192.168.1.14:5900

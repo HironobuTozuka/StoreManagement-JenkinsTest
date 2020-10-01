@@ -1,0 +1,13 @@
+inc:
+  roms:
+    omnichannel:
+      enabled: false
+    machineoperator:
+      url: "http://localhost:8080/mheo-mock"
+      enabled: true
+    usb:
+      enabled: false
+
+spring:
+  profiles:
+    active: "cp"

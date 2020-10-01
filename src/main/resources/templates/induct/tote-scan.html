@@ -1,0 +1,69 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Induct tote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; padding-top:250px;">
+            <h1>Please put the tote into the loading gate...</h1>
+            <form id="barcodeForm" action="#" th:action="@{/induct/tote-scan}" th:object="${totePrototype}"
+                  method="post">
+                <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{toteType.totePartitioning}">
+                <input type="hidden" th:field="*{toteOrientation}">
+                <input type="hidden" th:field="*{toteType.toteHeight}">
+                <input type="hidden" th:field="*{toteId}">
+                <input type="hidden" th:field="*{toteStatus}">
+            </form>
+        </div>
+    </div>
+    <script>
+        let stompClient = null;
+
+        function connect() {
+            let socket = new SockJS('/operator-panel-websocket');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                setConnected();
+                console.log('Connected: ' + frame);
+                stompClient.subscribe('/topic/tote-in-loading-gate', function (totePrototypeResponse) {
+                    const totePrototype = JSON.parse(totePrototypeResponse.body);
+                    $("#toteId").val(totePrototype.tote_id);
+                });
+                sendRequest();
+            });
+        }
+
+        function setConnected() {
+            console.log("Connected");
+        }
+
+        function setDisconnected() {
+            console.log("Disconnected");
+        }
+
+        function sendRequest() {
+            stompClient.send("/app/wait-for-tote-in-loading-gate", {});
+        }
+
+        window.addEventListener("beforeunload", function (e) {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+                setDisconnected();
+            }
+        }, false);
+
+        $(function () {
+            connect();
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+POST {{store_management_host}}/api/1.0/tote:scanned
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999999",
+  "tote_partitioning": "BIPARTITE",
+  "tote_height": "LOW",
+  "tote_orientation": "NORMAL",
+  "location": "LOADING_GATE"
+}
+
+###
+
+POST {{store_management_host}}/api/1.0/tote:scanned
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999998",
+  "tote_partitioning": "BIPARTITE",
+  "tote_height": "LOW",
+  "tote_orientation": "NORMAL",
+  "location": "LOADING_GATE"
+}
+
+###
+
+POST {{store_management_host}}/api/1.0/tote:scanned
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999997",
+  "tote_partitioning": "BIPARTITE",
+  "tote_height": "LOW",
+  "tote_orientation": "NORMAL",
+  "location": "LOADING_GATE"
+}
+
+###
+
+POST {{store_management_host}}/api/1.0/tote:scanned
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999996",
+  "tote_partitioning": "BIPARTITE",
+  "tote_height": "LOW",
+  "tote_orientation": "NORMAL",
+  "location": "LOADING_GATE"
+}
+
+###
+
+POST {{store_management_host}}/api/internal/tote:induct
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999999",
+  "slots": [
+  ]
+}
+
+###
+
+POST {{store_management_host}}/api/internal/tote:induct
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999998",
+  "slots": [
+  ]
+}
+
+###
+
+POST {{store_management_host}}/api/internal/tote:induct
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999997",
+  "slots": [
+    {
+      "sku_id": "4961115111400",
+      "ordinal": 0,
+      "quantity": 100
+    }
+  ]
+}
+
+###
+
+POST {{store_management_host}}/api/internal/tote:induct
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "99999996",
+  "slots": [
+    {
+      "sku_id": "4945224355894",
+      "ordinal": 0,
+      "quantity": 100
+    }
+  ]
+}
+
+###
+
+POST {{store_management_host}}/api/2.0/order:create
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "transaction_id": "ec-0000000002",
+  "order_no": "00000011",
+  "order_type": "ORDER",
+  "order_time": "2020/05/20 05:10:20 JST",
+  "pickup_time": "2020/05/20 05:10:20 JST",
+  "gate": "c_gate_1",
+  "order_lines": [
+    {
+      "sku": "4961115111400",
+      "quantity": 1,
+      "order_line_no": "94"
+    },
+    {
+      "sku": "4945224355894",
+      "quantity": 1,
+      "order_line_no": "93"
+    }
+  ]
+}

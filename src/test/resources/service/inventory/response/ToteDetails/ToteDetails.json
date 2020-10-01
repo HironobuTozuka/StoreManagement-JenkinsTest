@@ -1,0 +1,72 @@
+{
+  "tote_id": "00000001",
+  "slots": [
+    {
+      "ordinal": 0,
+      "display_ordinal": 0,
+      "storage_inventory": {
+        "available": 0,
+        "reservations": [
+          {
+            "order_line": {
+              "sku_id": "1234567",
+              "order_line_id": "98765",
+              "quantity": 10,
+              "picked": 6,
+              "failed": 4,
+              "storage_totes": [
+                "00000001",
+                "00000002"
+              ]
+            },
+            "quantity": 0,
+            "sku_id": "1234567",
+            "order_id": "12321"
+          }
+        ],
+        "sku_batch": {
+          "sku_id": "1234567",
+          "quantity": 0,
+          "sell_by_date": "2020-01-30T00:13:21.954",
+          "state": "AVAILABLE"
+        }
+      },
+      "delivery_inventory": {
+        "order_id": "order_id",
+        "reservations": [
+          {
+            "order_line": {
+              "sku_id": "1234567",
+              "order_line_id": "98765",
+              "quantity": 10,
+              "picked": 6,
+              "failed": 4,
+              "storage_totes": [
+                "00000001",
+                "00000002"
+              ]
+            },
+            "quantity": 10,
+            "sku_id": "1234567",
+            "order_id": "12321"
+          }
+        ],
+        "sku_batches": {
+          "1234567": {
+            "sku_id": "1234567",
+            "quantity": 0,
+            "sell_by_date": "2020-01-30T00:13:21.954",
+            "state": "AVAILABLE"
+          }
+        }
+      }
+    }
+  ],
+  "tote_type": {
+    "tote_partitioning": "BIPARTITE",
+    "tote_height": "LOW"
+  },
+  "tote_orientation": "NORMAL",
+  "tote_status": "AVAILABLE",
+  "tote_function": "DELIVERY"
+}

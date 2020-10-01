@@ -1,0 +1,19 @@
+{
+  "transaction_id": "request_identifier",
+  "order_no": "order_number",
+  "order_type": "PREORDER",
+  "order_time": "2020/02/17 05:10:20 JST",
+  "pickup_time": "2020/02/17 06:10:20 JST",
+  "order_lines": [
+    {
+      "sku": "sku_identifier_1",
+      "quantity": 5,
+      "order_line_no": "1"
+    },
+    {
+      "sku": "sku_identifier_2",
+      "quantity": 5,
+      "order_line_no": "2"
+    }
+  ]
+}

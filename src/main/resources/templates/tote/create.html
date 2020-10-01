@@ -1,0 +1,110 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Induct tote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Scan SKU in each pocket</h2>
+        </div>
+    </div>
+    <form action="#" th:action="@{/tote/create}" method="post" class="form-horizontal">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="toteId" class="control-label col-sm-2">
+                        Tote Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="toteId" class="form-control" type="text" th:name="'toteId'" th:placeholder="'Tote Barcode'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="totePartitioning" class="control-label col-sm-2">
+                        Tote Partitioning
+                    </label>
+                    <div class="col-sm-5">
+                        <select id="totePartitioning" name="totePartitioning">
+                            <option th:each="totePartitioning : ${T(inc.roms.rcs.vo.tote.TotePartitioning).values()}"
+                                    th:value="${totePartitioning}" th:text="${totePartitioning}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="toteHeight" class="control-label col-sm-2">
+                        Tote Height
+                    </label>
+                    <div class="col-sm-5">
+                        <select id="toteHeight" name="toteHeight">
+                            <option th:each="toteHeight : ${T(inc.roms.rcs.vo.tote.ToteHeight).values()}"
+                                    th:value="${toteHeight}" th:text="${toteHeight}"></option>
+                        </select>
+                    </div>
+                </div>
+                <h3>Slot 1</h3>
+                <input type="hidden" th:name="'slotModels[0].ordinal'" value="0">
+                <div class="form-group">
+                    <label for="external_sku_id_0" class="control-label col-sm-2">
+                        Sku Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="external_sku_id_0" class="form-control" type="text" th:name="'slotModels[0].skuId'" th:placeholder="'Sku Id'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity_0" class="control-label col-sm-2">
+                        Quantity
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="quantity_0" class="form-control" type="number" th:name="'slotModels[0].quantity'" th:placeholder="'Quantity'">
+                    </div>
+                </div>
+                <h3>Slot 2</h3>
+                <input type="hidden" th:name="'slotModels[1].ordinal'" value="1">
+                <div class="form-group">
+                    <label for="external_sku_id_1" class="control-label col-sm-2">
+                        Sku Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="external_sku_id_1" class="form-control" type="text" th:name="'slotModels[1].skuId'" th:placeholder="'Sku Id'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity_1" class="control-label col-sm-2">
+                        Quantity
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="quantity_1" class="form-control" type="number" th:name="'slotModels[1].quantity'" th:placeholder="'Quantity'">
+                    </div>
+                </div>
+                <h3>Slot 3</h3>
+                <input type="hidden" th:name="'slotModels[2].ordinal'" value="2">
+                <div class="form-group">
+                    <label for="external_sku_id_2" class="control-label col-sm-2">
+                        Sku Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="external_sku_id_2" class="form-control" type="text" th:name="'slotModels[2].skuId'" th:placeholder="'Sku Id'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity_2" class="control-label col-sm-2">
+                        Quantity
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="quantity_2" class="form-control" type="number" th:name="'slotModels[2].quantity'" th:placeholder="'Quantity'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+</body>
+</html>

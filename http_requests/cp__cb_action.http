@@ -1,0 +1,72 @@
+### for execute/gate_close
+### exit_code: SUCCESS, ERROR
+POST {{cp_host}}/api/1.0/cb:action
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "order_no": "1175",
+  "transaction_id": "ec-5efd8fe8d1195",
+  "rcs_operation_id": "1ee7e2b8-2474-4422-9d5a-58a24fa08943",
+  "store_code": "rcs-01",
+  "action_code": "PREORDER_READY",
+  "action_details": null,
+  "exit_code": "SUCCESS",
+  "exit_message": null
+}
+
+### for order/create_order,
+####  action_code: IN_PICKUP_GATE, ORDER_FAILED,
+### exit_code: SUCCESS, ERROR
+POST {{cp_host}}/api/1.0/cb:action
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "store_code" : "rcs-01",
+  "rcs_operation_id" : "rcs-0000001",
+  "transaction_id" : "tid-00000101",
+  "order_no" : "10000101",
+  "action_code" : "ORDER_FAILED",
+  "action_details":{},
+  "exit_code" : "SUCCESS",
+  "exit_message":{}
+}
+
+### for order/create_preorder,
+####  action_code: PREORDER_READY, ORDER_FAILED,
+### exit_code: SUCCESS, ERROR
+POST {{cp_host}}/api/1.0/cb:action
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "store_code" : "rcs-01",
+  "rcs_operation_id" : "rcs-0000001",
+  "transaction_id" : "tid-00000201",
+  "order_no" : "10000201",
+  "action_code" : "ORDER_FAILED",
+  "action_details":{},
+  "exit_code" : "SUCCESS",
+  "exit_message":{}
+}
+
+### for order/deliver,
+### action_code: IN_PICKUP_GATE, ORDER_FAILED,
+### exit_code: SUCCESS, ERROR
+POST {{cp_host}}/api/1.0/cb:action
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "store_code" : "rcs-01",
+  "rcs_operation_id" : "rcs-0000001",
+  "transaction_id" : "tid-00000301",
+  "order_no" : "10000301",
+  "action_code" : "IN_PICKUP_GATE",
+  "action_details":{},
+  "exit_code" : "SUCCESS",
+  "exit_message":{}
+}
+
+###

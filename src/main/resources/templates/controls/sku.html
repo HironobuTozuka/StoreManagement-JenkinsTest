@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div th:fragment="sku (id, name, label, value)">
+    <div class="form-group has-success">
+        <label th:for="${id}" th:text="${label}" style="font-weight: 300;">
+        </label>
+        <input
+                class="form-control"
+                type="text"
+                th:name="${name}"
+                th:id="${id}"
+                th:placeholder="${label}"
+                th:value="${value}"
+        >
+    </div>
+</div>
+</body>
+</html>

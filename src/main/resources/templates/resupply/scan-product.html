@@ -1,0 +1,150 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Resupply RCS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center">
+            <h2 style="margin-bottom: 30px;">Please scan products to be resupplied and provide quantity</h2>
+        </div>
+    </div>
+    <form th:action="@{/resupply/wait-for-tote}" th:object="${totesForSku}" action="#" method="post">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div th:replace="/controls/sku.html ::
+                    sku(
+                        id='skuId',
+                        name='skuId',
+                        label='SKU',
+                        value=''
+                    )">
+                        </div>
+                        <div th:replace="/controls/numeric.html ::
+                    quantity(
+                        id='quantity',
+                        name='quantity',
+                        label='Total quantity',
+                        value='1'
+                    )">
+                        </div>
+                    </div>
+                    <div style="height: 500px" class="row">
+
+                    </div> 
+                    <div class="row row-submit">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-lg pull-right btn-done-rms">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        let stompClient = null;
+
+        function connect() {
+            let socket = new SockJS('/operator-panel-websocket');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                setConnected();
+                console.log('Connected: ' + frame);
+                stompClient.subscribe('/topic/sku-to-be-resupplied', function (skuResponse) {
+                    const sku = JSON.parse(skuResponse.body);
+                    const skuId = sku.sku_id;
+                    $("#skuId").val(skuId);
+                    $("#skuId").change();
+                });
+
+                sendRequest();
+            });
+        }
+
+        function setConnected() {
+            console.log("Connected");
+        }
+
+        function setDisconnected() {
+            console.log("Disconnected");
+        }
+
+        function sendRequest() {
+            stompClient.send("/app/scan-sku-to-be-resupplied", {});
+        }
+
+        window.addEventListener("beforeunload", function (e) {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+                setDisconnected();
+            }
+        }, false);
+
+
+        $(function () {
+            connect();
+
+            $("#quantity_plus").click(function () {
+                addToQuantity('quantity', 1);
+            });
+            $("#quantity_minus").click(function () {
+                addToQuantity('quantity', -1);
+            });
+            $("#quantity").change(function () {
+                moveFocus('skuId', 'quantity');
+            });
+
+            $(":input").focus(function () {
+                $(".softkeys").css('display', 'none')
+            });
+
+            $("#quantity").focus(function () {
+                $(".softkeys").css('display', 'none')
+                $("#quantity_softkeys").css('display', '')
+
+                if($("#quantity").val() === '0') {
+                    $("#quantity").val('');
+                }
+            });
+
+            $("#quantity_softkeys").softkeys({
+                target: $("#quantity_softkeys").data('target'),
+                layout: [
+                    ['1', '2', '3'],
+                    ['4', '5', '6'],
+                    ['7', '8', '9'],
+                    ['0', 'delete'],
+                    ['return']
+                ]
+            });
+
+            $("[data-type|='return']").children('span').on({
+                'touchend': function () {
+                    $(".softkeys").css('display', 'none');
+                    $(":input").blur();
+                }
+            });
+
+            $("[data-type|='return']").on({
+                'touchend': function () {
+                    $(".softkeys").css('display', 'none');
+                    $(":input").blur();
+                }
+            });
+
+            $("#skuId").change(function () {
+                moveFocus('skuId', 'quantity');
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

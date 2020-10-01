@@ -1,0 +1,38 @@
+POST {{mhe_host}}/api/1.0/task:execute
+Content-Type: application/json
+
+{
+  "task_bundle_id": "4021ce8e-2466-4369-bc72-2c25ac3b82e0",
+  "tasks": [
+    {
+      "type": "PICK",
+      "task_id": "e9f23a2d-d6cd-49a2-bcae-39ea70673f66",
+      "source_tote": {
+        "tote_id": "00000004",
+        "slot_id": 1
+      },
+      "dest_tote": {
+        "tote_id": "00000001",
+        "slot_id": 0
+      },
+      "product_barcode": "4968913610531",
+      "quantity": 3
+    },
+    {
+      "type": "PICK",
+      "task_id": "4e33abd7-1b47-4a6a-b790-077402724ec0",
+      "source_tote": {
+        "tote_id": "00000006",
+        "slot_id": 0
+      },
+      "dest_tote": {
+        "tote_id": "00000001",
+        "slot_id": 0
+      },
+      "product_barcode": "4945224364346",
+      "quantity": 2
+    }
+  ]
+}
+
+###

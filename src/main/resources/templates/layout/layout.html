@@ -1,0 +1,78 @@
+<!Doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RCS Operator Panel</title>
+        <link href="/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/jQKeyboard.css" rel="stylesheet"/>
+        <link href="/softkeys-0.0.1.css" rel="stylesheet"/>
+        <link href="/css/style.css" rel="stylesheet"/>
+
+        <script src="/jquery-3.4.1.min.js"></script>
+        <script src="/sockjs.min.js"></script>
+        <script src="/stomp.min.js"></script>
+        <script src="/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+        <script src="/jQKeyboard.js"></script>
+        <script src="/softkeys-0.0.1.js"></script>
+        <style>
+            .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+                background-color: goldenrod;
+            }
+        </style>
+    </head>
+    <body>
+        <div layout:replace="~{/layout/fragments/navbar :: navbar}"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" th:if="${notifications != null && notifications.getSuccess() != null}">
+                            <div class="alert alert-success" role="alert" th:text="${notifications.getSuccess()}" style="text-align:center"> </div>
+                        </div>
+                        <div class="col-md-12" th:if="${notifications != null && notifications.getError() != null}">
+                            <div class="alert alert-danger" role="alert" th:text="${notifications.getError()}" style="text-align:center"> </div>
+                        </div>
+                    </div>
+                    <section layout:fragment="content">Page Content</section>
+                </div>
+            </div>
+        </div>
+        <script type="application/javascript">
+
+            function moveFocus(sku, quantity) {
+                const $sku = $('#' + sku);
+                const $quantity = $('#' + quantity);
+
+                if($sku.val()) {
+                    $sku.closest('div.form-group').removeClass('has-success');
+                    $quantity.removeAttr('disabled');
+                    $quantity.css('background-color', 'white');
+                    if($quantity.val() && $quantity.val() !== '0') {
+                        $quantity.closest('div.form-group').removeClass('has-success');
+                    } else {
+                        $quantity.closest('div.form-group').addClass('has-success');
+                    }
+                } else {
+                    $sku.closest('div.form-group').addClass('has-success');
+                    $quantity.closest('div.form-group').removeClass('has-success');
+                    $quantity.attr('disabled', '');
+                    $quantity.css('background-color', '');
+                }
+            }
+
+            function addToQuantity(elem, delta) {
+                const $elem = $('#' + elem + ":enabled");
+
+                if($elem.val()) {
+                    $elem.val(Math.max(0, parseInt($elem.val()) + delta));
+                    $elem.change();
+                } else {
+                    $elem.val(Math.max(0, delta));
+                    $elem.change();
+                }
+            }
+        </script>
+    </body>
+</html>

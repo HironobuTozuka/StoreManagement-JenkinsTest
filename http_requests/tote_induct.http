@@ -1,0 +1,16 @@
+POST {{store_management_host}}/api/internal/tote:induct
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "00000001",
+  "slots": [
+    {
+      "sku_id": "4945224364346",
+      "ordinal": 0,
+      "quantity": 5
+    }
+  ]
+}
+
+###4961115111400

@@ -1,0 +1,13 @@
+POST {{store_management_host}}/api/2.0/stock:dispose
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "transaction_id": "request_identifier",
+  "items": [
+    {
+      "sell_by_date": "2020/06/22 20:10:20 UTC",
+      "sku": "4945224355894"
+    }
+  ]
+}

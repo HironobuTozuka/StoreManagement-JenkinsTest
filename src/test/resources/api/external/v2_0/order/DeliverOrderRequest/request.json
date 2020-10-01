@@ -1,0 +1,5 @@
+{
+  "transaction_id": "request_identifier",
+  "order_no": "order_number",
+  "gate": "gate_identifier"
+}

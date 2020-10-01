@@ -1,0 +1,10 @@
+{
+  "receive_time": "2020/02/17 05:10:20 JST",
+  "store_code": "store_identifier",
+  "accept_code": "ERROR",
+  "accept_message": {
+    "error_code": "UNKNOWN_SKU",
+    "sku": "sku_id",
+    "issue_id": "222"
+  }
+}

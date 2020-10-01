@@ -1,0 +1,2 @@
+GET http://192.168.2.16/query/barcodes?barcodes=4902409111225
+Authorization: Basic mujin mujin

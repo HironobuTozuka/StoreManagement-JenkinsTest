@@ -1,0 +1,2 @@
+GET {{store_management_host}}/api/internal/tote:list
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv

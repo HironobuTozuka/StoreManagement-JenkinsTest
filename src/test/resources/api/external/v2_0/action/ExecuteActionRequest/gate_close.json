@@ -1,0 +1,7 @@
+{
+  "transaction_id": "request_identifier",
+  "action_type": "GATE_CLOSE",
+  "action_details": {
+    "gate": "gate_identifier"
+  }
+}

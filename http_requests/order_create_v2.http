@@ -1,0 +1,19 @@
+POST {{store_management_host}}/api/2.0/order:create
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "transaction_id": "ORD12",
+  "order_no": "ORD12",
+  "order_type": "ORDER",
+  "order_time": "2020/05/20 05:10:20 JST",
+  "pickup_time": "2020/05/20 05:10:20 JST",
+  "gate": "c_gate_1",
+  "order_lines": [
+    {
+      "sku": "5449000000996",
+      "quantity": 2,
+      "order_line_no": "ORD12_12"
+    }
+  ]
+}

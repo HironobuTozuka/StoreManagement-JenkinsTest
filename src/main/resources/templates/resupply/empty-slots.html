@@ -1,0 +1,170 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Resupply RCS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+
+    <form action="#" th:action="@{/resupply/tote-loaded}" method="post" th:with="numberOfSlots=${tote.getAllSlots().size()}">
+        <input type="hidden" th:name="inductRequest.id" th:value="*{tote.id}">
+        <input type="hidden" th:name="inductRequest.toteId" th:value="*{tote.toteId}">
+        <input type="hidden" th:name="inductRequest.totePartitioning" th:id="totePartitioning" th:value="${tote.toteType.totePartitioning}">
+        <input type="hidden" th:value="${numberOfTotesLeft}" th:name="numberOfTotesLeft">
+        <input type="hidden" id="numberOfSlots" th:value="${numberOfSlots}" />
+        <div class="row">
+            <div class="col-md-4" th:each="slot, iteration : ${tote.getAllSlots()}" >
+                <div th:if="${slot.deliveryInventory == null}">
+                    <input type="hidden" th:name="'inductRequest.slots[' + ${iteration.index} + '].ordinal'" th:value="${slot.getOrdinal()}" />
+                    <div th:replace="/controls/sku.html ::
+                    sku(
+                        id='slot_' + ${iteration.index} + '_skuId',
+                        name='inductRequest.slots[' + ${iteration.index} + '].skuId',
+                        label='SKU',
+                        value=${slot.storageInventory.skuBatch.skuId}
+                    )">
+                    </div>
+                    <div th:replace="/controls/numeric.html ::
+                    quantity(
+                        id='slot_' + ${iteration.index} + '_quantity',
+                        name='inductRequest.slots[' + ${iteration.index} + '].quantity',
+                        label='Quantity',
+                        value=${slot.storageInventory.skuBatch.quantity != null ? slot.storageInventory.skuBatch.quantity.quantity : ''}
+                    )">
+                    </div>
+                </div>
+                <div th:if="${slot.deliveryInventory != null}">
+                    Do not modify, this is delivery inventory!
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height: 400px">
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+            <button class="btn btn-primary pull-right btn-lg" name="action" value="next-tote" th:if="${numberOfTotesLeft > 0}">Next tote</button>
+            <button class="btn btn-primary pull-right btn-lg" name="action" value="finish" th:if="${numberOfTotesLeft == 0}"> End resupplying</button>
+            <button class="btn btn-primary pull-right btn-lg" name="action" value="continue" th:if="${numberOfTotesLeft == 0}">Resupply next product</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        let stompClient = null;
+
+        function connect() {
+            let socket = new SockJS('/operator-panel-websocket');
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                setConnected();
+                console.log('Connected: ' + frame);
+                stompClient.subscribe('/topic/sku-in-pocket', function (skuInSlotResponse) {
+                    const skuInSlot = JSON.parse(skuInSlotResponse.body);
+
+                    const slotId = skuInSlot.slot_id;
+                    const skuId = skuInSlot.sku_id;
+
+                    if(slotId == undefined) {
+                        $(':focus').val(skuId);
+                        $(':focus').change();
+                    } else {
+                        let skuIdInput = `#slot_${slotId}_skuId`;
+                        if(!$(skuIdInput).attr('readonly')) {
+                            $(skuIdInput).val(skuId);
+                            $(skuIdInput).change();
+                        }
+                    }
+                    sendRequest();
+                });
+                sendRequest();
+            });
+        }
+
+        function setConnected() {
+            console.log("Connected");
+        }
+
+        function setDisconnected() {
+            console.log("Disconnected");
+        }
+
+        function sendRequest() {
+            let totePartitioning = $("#totePartitioning").val();
+            stompClient.send("/app/scan-sku", {},JSON.stringify({"tote_partitioning": totePartitioning}));
+        }
+
+        window.addEventListener("beforeunload", function (e) {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+                setDisconnected();
+            }
+        }, false);
+
+        $(function () {
+            connect();
+
+            for(let i = 0; i < 3; i++) {
+                const prefix = "slot_" + i + "_";
+                $('#' + prefix + "quantity_plus").click(function() {
+                    addToQuantity(prefix + 'quantity', 1);
+                });
+                $('#' + prefix + "quantity_minus").click(function() {
+                    addToQuantity(prefix + 'quantity', -1);
+                });
+                $('#' + prefix + "quantity").change(function() {
+                    moveFocus(prefix + 'skuId', prefix + 'quantity');
+                });
+                $('#' + prefix + "quantity").change();
+                $('#' + prefix + "skuId").change(function() {
+                    moveFocus(prefix + 'skuId', prefix + 'quantity');
+                });
+                $('#' + prefix + "skuId").change();
+                $("#" + prefix + "quantity").focus(function() {
+                    $(".softkeys").css('display', 'none')
+                    $("#" + prefix + "quantity_softkeys").css('display', '')
+                    if($("#" + prefix + "quantity").val() === '0') {
+                        $("#" + prefix + "quantity").val('');
+                    }
+                });
+
+                $("[data-type='return']").click(function() {
+                    $(".softkeys").css('display', 'none');
+                });
+
+                $("#" + prefix + "quantity_softkeys").softkeys({
+                    target: $("#" + prefix + "quantity_softkeys").data('target'),
+                    layout: [
+                        ['1', '2', '3'],
+                        ['4', '5', '6'],
+                        ['7', '8', '9'],
+                        ['0', 'delete'],
+                        ['return']
+                    ]
+                });
+
+
+                $("[data-type|='return']").children('span').on({
+                    'touchend': function () {
+                        $(".softkeys").css('display', 'none');
+                        $(":input").blur();
+                    }
+                });
+
+                $("[data-type|='return']").on({
+                    'touchend': function () {
+                        $(".softkeys").css('display', 'none');
+                        $(":input").blur();
+                    }
+                });
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

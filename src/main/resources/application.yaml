@@ -1,0 +1,111 @@
+inc:
+  roms:
+    feature:
+      delayed_pick_preorder: false
+    security:
+      enabled: false
+    gates:
+      loadingGateZone: "LOADING_GATE"
+      ordergates:
+        - gateId: "gate-001"
+          zoneId: ORDER_GATE_1
+        - gateId: "gate-002"
+          zoneId: ORDER_GATE_2
+    omnichannel:
+      tokenUri: "https://ordering.3e.pl/auth-oauth2/2724ef16-20c8-4008-b183-3504cedc38af/oauth/token"
+      username: "testomir6@roms.3e.pl"
+      password: "test123"
+      url: "https://ordering.3e.pl/"
+      clientPassword: "secret"
+      clientId: "roms"
+      enabled: false
+    mujin:
+      url: "http://192.168.2.16"
+      username: "mujin"
+      password: "mujin"
+      enabled: false
+    machineoperator:
+      url: "http://localhost:5000"
+      enabled: false
+    usb:
+      devices:
+        - idProduct: "0901"
+          idVendor: "0C2E"
+          numberOfScanners: 1
+          outputEndpointAddress: -0x7C
+          interfaceAddress: 0
+      enabled: false
+      validate: true
+    scanners:
+      prefix:
+        totePartitions:
+          BIPARTITE:
+            mapping:
+              - prefix: "0"
+                slotIndex: 0
+              - prefix: "2"
+                slotIndex: 1
+          TRIPARTITE:
+            mapping:
+              - prefix: "0"
+                slotIndex: 0
+              - prefix: "1"
+                slotIndex: 1
+              - prefix: "2"
+                slotIndex: 2
+        handheld: "9"
+    rcs:
+      defaults:
+        number-of-delivery-totes: 24
+        max-order-size: 20
+    sku_status_job:
+      rate: 5000
+
+logging:
+  file:
+    name: rcs-sm.logs
+    clean-history-on-start: true
+  level:
+    web: debug
+    inc.roms.rcs: debug
+
+spring:
+  application:
+    name: rcs-sm-dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=sm
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      default_schema: sm
+  flyway:
+    schemas: sm
+    clean-on-validation-error: true
+    locations: "classpath:db/migration"
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    deserialization:
+      ADJUST_DATES_TO_CONTEXT_TIME_ZONE: false
+  thymeleaf:
+    cache: false
+  http:
+    log-request-details: true
+  devtools:
+    livereload:
+      enabled: false
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+azure:
+  application-insights:
+    enabled: false
+

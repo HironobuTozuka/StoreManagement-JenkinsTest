@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="15px" viewBox="0 0 24 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>Element/Icon/Arrow_Down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00_assets" transform="translate(-575.000000, -355.000000)" fill="#0DA36A">
+            <g id="Element/Icon/Arrow_Down" transform="translate(573.000000, 347.000000)">
+                <path d="M21,1.575 C21.9922716,1.575 22.8091918,2.32576873 22.9137044,3.29025004 L22.925,3.5 L22.925,17.5 C22.925,18.4922716 22.1742313,19.3091918 21.20975,19.4137044 L21,19.425 L7,19.425 C5.93685186,19.425 5.075,18.5631481 5.075,17.5 C5.075,16.5077284 5.82576873,15.6908082 6.79025004,15.5862956 L7,15.575 L19.075,15.575 L19.075,3.5 C19.075,2.5077284 19.8257687,1.69080823 20.79025,1.58629564 L21,1.575 Z" id="Rectangle" transform="translate(14.000000, 10.500000) rotate(-315.000000) translate(-14.000000, -10.500000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

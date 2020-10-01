@@ -1,0 +1,49 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<nav layout:fragment="navbar" class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row" style="height: 100px;">
+                    <div class="col-sm-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" style="padding-top: 22px; padding-left: 22px" href="#">
+                                <img alt="Brand" src="/images/RomsLogo.svg" style="height: 50px; width: auto;">
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <span class="glyphicon glyphicon-user" style="font-size: 26px;"></span>
+                                        <span th:if="${#request.userPrincipal != null}"
+                                              th:text="${#request.userPrincipal.principal.firstname + ' ' + #request.userPrincipal.principal.lastname}" style="font-size: 26px;"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="/logout">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="left-menu">
+                        <div layout:replace="~{/layout/fragments/menu :: menu}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+</body>

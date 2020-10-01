@@ -1,0 +1,16 @@
+PATCH {{cp_host}}/api/1.0/stock:update
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "store_code": "azumabashi",
+  "delivery_date": "2020/08/06",
+  "delivery_turn": "1",
+  "update_date": "2020/08/06 19:50:07 JST",
+  "update_type": "ACCEPT",
+  "rcs_operation_id": "7377ab6c-2b51-4ab4-ad4d-9669a4d0dbac",
+  "sku": "4902992110575",
+  "quantity": 1
+}
+
+###

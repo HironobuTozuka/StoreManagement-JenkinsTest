@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div th:fragment="quantity (id, name, label, value)">
+    <div class="form-group">
+        <label th:for="${id}" th:text="${label}" style="font-weight: 300;">
+        </label>
+            <div class="input-group">
+                <span th:id="${id + '_minus'}" class="input-group-addon glyphicon glyphicon-minus-sign" style="top: 0; color: darkred; font-size: 30px;"> </span>
+                <input th:id="${id}" readonly disabled class="form-control" type="text" required="required" th:value="${value}" th:name="${name}" placeholder="Total quantity">
+                <span th:id="${id + '_plus'}" class="input-group-addon glyphicon glyphicon-plus-sign" style="top: 0; color: darkgreen; font-size: 30px;"> </span>
+            </div>
+
+            <div class="softkeys" style="position: absolute; background-color: white; display: none; font-size: 20px; " th:id="${id + '_softkeys'}" th:data-target="${'#' + id}" ></div>
+
+    </div>
+</div>
+</body>
+</html>

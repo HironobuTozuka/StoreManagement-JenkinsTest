@@ -1,0 +1,1 @@
+ssh -nNv -R 8080:localhost:8080 MateuszSz@52.138.180.234

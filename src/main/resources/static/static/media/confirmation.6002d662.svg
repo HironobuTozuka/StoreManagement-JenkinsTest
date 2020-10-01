@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="72px" height="72px" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>cgi/confirmation</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00_assets" transform="translate(-742.000000, -120.000000)">
+            <g id="cgi/confirmation" transform="translate(742.000000, 120.000000)">
+                <circle id="inner_oval" fill="#0DA36A" cx="36" cy="36" r="35.7763975"></circle>
+                <g id="Element/Icon/Check" transform="translate(18.111801, 18.111801)" fill="#FFFFFF">
+                    <path d="M30.5625022,11.2484391 L15.204463,27.3940261 C14.2153355,28.4338753 12.6140113,28.4338753 11.6274135,27.3940261 L5.21199804,20.6522928 C4.22540024,19.6124436 4.22540024,17.9290049 5.21199804,16.8891557 C6.20112559,15.8519659 7.80244972,15.8519659 8.78904752,16.8891557 L13.4159383,21.7533096 L26.9854527,7.48796144 C27.9720505,6.44811223 29.5733746,6.44811223 30.5625022,7.48796144 C31.5516297,8.52515118 31.5516297,10.2085899 30.5625022,11.2484391" id="🎨-Icon-color"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

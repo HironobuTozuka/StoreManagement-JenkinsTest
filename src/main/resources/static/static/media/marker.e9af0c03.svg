@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="69px" viewBox="0 0 28 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>cgi/marker_long</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
+        <g id="00_assets" transform="translate(-893.000000, -122.000000)" fill="#0DA36A">
+            <g id="cgi/marker_long" transform="translate(892.000000, 122.000000)">
+                <g>
+                    <path d="M22.8431373,45 C23.9549262,45 24.8702429,45.8411975 24.9873438,46.9218488 L25,47.1568627 L25,62.8431373 C25,63.9549262 24.1588025,64.8702429 23.0781512,64.9873438 L22.8431373,65 L7.15686275,65 C5.96566034,65 5,64.0343397 5,62.8431373 C5,61.7313483 5.84119745,60.8160316 6.92184879,60.6989307 L7.15686275,60.6862745 L20.6862745,60.6862745 L20.6862745,47.1568627 C20.6862745,46.0450738 21.527472,45.1297571 22.6081233,45.0126562 L22.8431373,45 Z" id="Rectangle-Copy-4" transform="translate(15.000000, 55.000000) rotate(-315.000000) translate(-15.000000, -55.000000) "></path>
+                    <rect id="Rectangle" x="13" y="0" width="4" height="63"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,2 @@
+GET {{store_management_host}}/api/1.0/order:list
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv

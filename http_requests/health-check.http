@@ -1,0 +1,5 @@
+GET {{store_management_host}}/api/health-check?transaction_id=
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+
+###

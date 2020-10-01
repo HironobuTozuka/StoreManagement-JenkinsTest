@@ -1,0 +1,30 @@
+/* style.css */
+* {
+    font-size: 36px;
+    line-height: 2;
+}
+.btn-done-rms {
+    font-size: 36px;
+}
+.form-control {
+    font-size: 28px;
+    height: 70px;
+}
+.container-fluid {
+    padding-right: 35px;
+    padding-left: 35px;
+}
+.label-small {
+    font-weight: 300;
+}
+a {
+    color: #656565;
+}
+.active a{
+    background-color: #64aa4e !important;
+}
+
+.row-submit {
+	margin-left: 1660px;
+    width: 150px;
+}

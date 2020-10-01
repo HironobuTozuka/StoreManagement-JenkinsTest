@@ -1,0 +1,11 @@
+POST {{store_management_host}}/api/internal/order:deliver
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "transaction_id": "ec-0000000001",
+  "gate_id": "LOADING_GATE",
+  "order_id": "REPL_1"
+}
+
+###

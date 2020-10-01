@@ -1,0 +1,59 @@
+POST {{store_management_host}}/api/internal/task:update
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "task_id": "d7c60bc9-23ee-4538-ad6e-6315d2a4f1c3",
+  "task_status": "CANCELLED",
+  "details": {
+    "picked": 0,
+    "failed": 1
+  }
+}
+
+###
+
+POST {{store_management_host}}/api/internal/task:update
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "task_id": "4d94b99a-8cfa-4704-b6e1-a294a752cf4f",
+  "task_status": "CANCELLED",
+  "details": {
+    "picked": 0,
+    "failed": 1
+  }
+}
+
+###
+
+POST {{store_management_host}}/api/internal/task:update
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "task_id": "6874efe5-bdb6-4793-84b5-9c442904c2e0",
+  "task_status": "CANCELLED",
+  "details": {
+    "picked": 0,
+    "failed": 1
+  }
+}
+
+###
+
+POST {{store_management_host}}/api/internal/task:update
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "task_id": "aadfdffa-2083-4fc4-99b0-a3bd26992c1e",
+  "task_status": "CANCELLED",
+  "details": {
+    "picked": 0,
+    "failed": 1
+  }
+}
+
+###

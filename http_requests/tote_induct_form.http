@@ -1,0 +1,6 @@
+POST {{store_management_host}}/induct/sku-scan
+Content-Type: application/x-www-form-urlencoded
+
+toteId=10100108&toteType.totePartitioning=TRIPARTITE&slots[0].ordinal=0&slots[0].skuId=5900394006167&slots[0].quantity=57&slots[1].ordinal=1&slots[1].skuId=4902102069359&slots[1].quantity=12&slots[2].ordinal=2&slots[2].skuId=4902555176444&slots[2].quantity=32
+
+###

@@ -1,0 +1,12 @@
+POST {{store_management_host}}/api/2.0/sku:upload
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="product.csv"
+
+< C:\Users\mateu\Downloads\product_20200624183419.csv
+--WebAppBoundary--
+
+###
+

@@ -1,0 +1,9 @@
+POST {{store_management_host}}/api/internal/tote:clean
+Content-Type: application/json
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+
+{
+  "tote_id": "00000114"
+}
+
+###

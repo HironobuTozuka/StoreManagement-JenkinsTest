@@ -1,0 +1,95 @@
+<!Doctype html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Induct tote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div class="container-fluid" layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Create order</h2>
+        </div>
+    </div>
+    <form action="#" th:action="@{/order/create}" method="post" class="form-horizontal">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="orderId" class="control-label col-sm-2">
+                        Order Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="orderId" class="form-control" type="text" th:name="'orderId'" th:placeholder="'OrderId'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="orderType" class="control-label col-sm-2">
+                        Order Type
+                    </label>
+                    <div class="col-sm-5">
+                        <select id="orderType" name="orderType">
+                            <option th:each="orderType : ${T(inc.roms.rcs.vo.order.OrderType).values()}"
+                                    th:value="${orderType}" th:text="${orderType}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gateId" class="control-label col-sm-2">
+                        Gate Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="gateId" class="form-control" type="text" th:name="'gateId'" th:placeholder="'GateId'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userId" class="control-label col-sm-2">
+                        User Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="userId" class="form-control" type="text" th:name="'userId'" th:placeholder="'UserId'">
+                    </div>
+                </div>
+                <h3> Order Line 1</h3>
+                <div class="form-group">
+                    <label for="external_sku_id_0" class="control-label col-sm-2">
+                        External Sku Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="external_sku_id_0" class="form-control" type="text" th:name="'orderLines[0].skuId'" th:placeholder="'External Sku Id'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity_0" class="control-label col-sm-2">
+                        Quantity
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="quantity_0" class="form-control" type="number" th:name="'orderLines[0].quantity'" th:placeholder="'Quantity'">
+                    </div>
+                </div>
+                <h3> Order Line 2</h3>
+                <div class="form-group">
+                    <label for="external_sku_id_1" class="control-label col-sm-2">
+                        External Sku Id
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="external_sku_id_1" class="form-control" type="text" th:name="'orderLines[1].skuId'" th:placeholder="'External Sku Id'">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity_1" class="control-label col-sm-2">
+                        Quantity
+                    </label>
+                    <div class="col-sm-5">
+                        <input id="quantity_1" class="form-control" type="number" th:name="'orderLines[1].quantity'" th:placeholder="'Quantity'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+</body>
+</html>

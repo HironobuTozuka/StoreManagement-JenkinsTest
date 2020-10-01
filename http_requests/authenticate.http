@@ -1,0 +1,9 @@
+POST {{store_management_host}}/authenticate
+Content-Type: application/json
+
+{
+  "username": "mszpak",
+  "password": "a"
+}
+
+###

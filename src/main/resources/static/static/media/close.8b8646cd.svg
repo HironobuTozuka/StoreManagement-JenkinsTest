@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>Element/Icon/close_large</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00_assets" transform="translate(-970.000000, -284.000000)" fill="#0DA36A">
+            <g id="Element/Icon/close_large" transform="translate(963.000000, 277.000000)">
+                <path d="M18,4.5 C19.2426407,4.5 20.25,5.50735931 20.25,6.75 L20.25,15.749 L29.25,15.75 C30.4926407,15.75 31.5,16.7573593 31.5,18 C31.5,19.2426407 30.4926407,20.25 29.25,20.25 L20.25,20.249 L20.25,29.25 C20.25,30.4926407 19.2426407,31.5 18,31.5 C16.7573593,31.5 15.75,30.4926407 15.75,29.25 L15.75,20.249 L6.75,20.25 C5.50735931,20.25 4.5,19.2426407 4.5,18 C4.5,16.7573593 5.50735931,15.75 6.75,15.75 L15.75,15.749 L15.75,6.75 C15.75,5.50735931 16.7573593,4.5 18,4.5 Z" id="Combined-Shape" transform="translate(18.000000, 18.000000) rotate(-45.000000) translate(-18.000000, -18.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

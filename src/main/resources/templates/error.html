@@ -1,0 +1,15 @@
+<!Doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/layout.html}">
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+<div class="container-fluid" layout:fragment="content" style="text-align:center; padding-top: 250px;">
+    <span class="alert alert-danger" role="alert" th:text="${message}" ></span>
+</div>
+</body>
+</html>

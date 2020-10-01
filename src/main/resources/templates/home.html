@@ -1,0 +1,31 @@
+<!Doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+<div class="container-fluid" layout:fragment="content">
+<!--    <div class="row">-->
+<!--        <div class="col-xs-6 col-md-4" sec:authorize="hasRole('ROLE_INDUCT')">-->
+<!--            <a href="/induct/tote" class="thumbnail">-->
+<!--                <img src="/images/tote.jpg" alt="Induct tote">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="col-xs-6 col-md-4" sec:authorize="hasRole('ROLE_RESUPPLY')">-->
+<!--            <a href="/resupply/init" class="thumbnail">-->
+<!--                <img src="/images/resupply.jpg" alt="Resupply RCS">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="col-xs-6 col-md-4" sec:authorize="hasRole('ROLE_PLC_SUPPORT')">-->
+<!--            <a href="/hmi/panel" class="thumbnail">-->
+<!--                <img src="/images/hmi.png" alt="HMI Panel">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</body>
+</html>

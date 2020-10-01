@@ -1,0 +1,31 @@
+inc:
+  roms:
+    omnichannel:
+      enabled: true
+    machineoperator:
+      url: "http://machine_operator:5000"
+      enabled: true
+    usb:
+      enabled: false
+
+logging:
+  file:
+    name: rcs-sm.logs
+    clean-history-on-start: true
+  level:
+    web: info
+    inc.roms.rcs.service.omnichannel.config: debug
+
+spring:
+  application:
+    name: rcs-sm
+  datasource:
+    url: jdbc:postgresql://postgres:5432/postgres?currentSchema=sm
+    username: postgres
+  flyway:
+    clean-on-validation-error: true
+
+azure:
+  application-insights:
+    enabled: true
+    instrumentation-key: a43f1763-3782-4de2-90f4-51e308f53d9c

@@ -1,0 +1,14 @@
+POST {{store_management_host}}/api/2.0/sku:add
+Authorization: Bearer a5NvNKxTxXKzmNaS0tHb4hPsHfurxErv
+Content-Type: application/json
+
+{
+  "external_id": "123",
+  "name":  "name",
+  "sku_id": "sku_id",
+  "category": "1",
+  "distribution_type": "AMBIENT"
+}
+
+###
+
