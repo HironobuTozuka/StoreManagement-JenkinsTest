@@ -16,7 +16,7 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-ttt
+
 @RestController
 @Slf4j
 @RequiredArgsConstructor
