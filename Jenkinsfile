@@ -9,9 +9,7 @@ pipeline {
 
     stage('build') {
       steps {
-        dir(${TARGET_DIR}){
-          bat "gradle build -x test"
-        }
+        echo 'unit test'
       }
     }
 
