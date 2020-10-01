@@ -9,8 +9,8 @@ pipeline {
 
     stage('build') {
       steps {
-        bat 'cd /d ${TARGET_DIR}'
-        bat '${GRADLE} build -x test'
+        bat "cd /d \"${TARGET_DIR}\""
+        bat "\"${GRADLE}\" build -x test"
       }
     }
 
@@ -28,7 +28,7 @@ pipeline {
 
   }
   environment {
-    TARGET_DIR = '"C:\\Jenkins\\workspace\\oreManagement-JenkinsTest_master"'
-    GRADLE = '"C:\\Program Files\\Java\\gradle-6.6.1\\bin\\gradle"'
+    TARGET_DIR = 'C:\\Jenkins\\workspace\\oreManagement-JenkinsTest_master'
+    GRADLE = 'C:\\Program Files\\Java\\gradle-6.6.1\\bin\\gradle'
   }
 }
