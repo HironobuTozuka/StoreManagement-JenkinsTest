@@ -11,7 +11,6 @@ pipeline {
       steps {
           bat "cd /d \"${TARGET_DIR}\""
           bat "gradle build -x test"
-        }
       }
     }
 
