@@ -9,8 +9,8 @@ pipeline {
 
     stage('build') {
       steps {
-        bat 'cd /d "${TARGET_DIR}"'
-        bat '"${GRADLE}" build -x test'
+        bat 'cd /d \"${TARGET_DIR}\"'
+        bat '\"${GRADLE}\" build -x test'
       }
     }
 
